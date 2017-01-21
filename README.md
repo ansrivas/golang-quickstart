@@ -41,3 +41,33 @@ export PATH=$PATH:$GOPATH/bin
     go build -i -o mybinary github.com/user  ( -i will build all the dependencies as well)
     ./mybinary
     ```
+
+6. To publish a coverage report for all the packages in your project:
+
+    ```
+    go test -v github.com/user/... -cover
+    ```
+
+    For just one package:
+
+    ```
+    go test -v github.com/user/package1 -cover
+    ```
+
+7. This following tool generates detailed coverage report in a very readable format:
+
+    ```
+    go get github.com/axw/gocov/gocov
+    ```
+
+    and then run to generate test coverage for one package:
+
+    ```
+    gocov test -v github.com/user/datastructs -cover | gocov report
+    ```
+
+    to check detailed coverage for entire project:
+
+    ```
+    gocov test -v github.com/user/... -cover | gocov report
+    ```
